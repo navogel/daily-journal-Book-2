@@ -1,0 +1,224 @@
+
+* {box-sizing: border-box}
+
+::placeholder {
+	color: rgb(48, 48, 48);
+}
+
+body {
+	margin: 1em;
+	display: flex;
+	justify-content: center;
+}
+/* styling the pieces of the form */
+
+
+#entry {
+	font-family: "Oswald", sans-serif;
+	width: -webkit-fill-available;
+	color: rgb(48, 48, 48);
+	height: 5em;
+	border-radius: 0.15em;
+	border: none;
+}
+
+#concepts {
+	width: -webkit-fill-available;
+	height: 2em;
+	border-radius: 0.15em;
+	border: none;
+	font-family: "Oswald", sans-serif;
+}
+
+#journalDate {
+	border-radius: 0.15em;
+	border: none;
+	background-color: #ffffff;
+	height: 2em;
+	color: rgb(48, 48, 48);
+	font-family: "Oswald", sans-serif;
+	align-self: baseline;
+	margin-right: 10px;
+}
+
+#mood {
+	float: right;
+	height: 2em;
+	background-color: rgb(255, 255, 255);
+	border-radius: 0.15em;
+	border: none;
+	color: rgb(48, 48, 48);
+	font-family: "Oswald", sans-serif;
+}
+
+/* Styling the form */
+
+form {
+	align-items: center;
+	max-width: 500px;
+	margin: auto;
+}
+
+.formBottom {
+	display: flex;
+}
+
+.formTop,
+.formEntry,
+.formConcepts {
+	padding: 0.3em 0.6em;
+}
+
+.formTop {
+	padding-top: 0.6em;
+	display: flex;
+	justify-content: space-between;
+}
+
+.formBody {
+	border-radius: 5px;
+	max-width: 350px;
+    margin: auto;
+}
+
+/* Styling the title */
+
+h1 {
+	text-align: center;
+	font-family: "Bungee Hairline", sans-serif;
+	font-weight: 800;
+	margin: 0px;
+	padding-bottom: 0px;
+	height: 1.8em;
+}
+
+h5 {
+	font-family: "Oswald", sans-serif;
+	text-align: center;
+	margin-top: 0;
+	font-weight: 200
+}
+
+/* styling the submit button */
+
+a.button1 {
+	display: inline-block;
+	padding: 0.1em 1.5em;
+	border: 0.07em solid white;
+	margin: auto;
+	border-radius: 0.15em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: "Oswald", sans-serif;
+	font-weight: 500;
+	color: white;
+	text-align: center;
+	transition: all 0.2s;
+	margin-top: 1em;
+	margin-bottom: 0;
+}
+
+a.button1:hover {
+	color: rgb(64, 96, 145);
+	background-color: white;
+}
+
+@media all and (max-width: 30em) {
+	a.button1 {
+		display: block;
+		margin: 0.4em auto;
+	}
+}
+
+/* Saying Ni another time https://codepen.io/ifekt/pen/zBaEVJ */
+
+span.add-label {
+	display: none;
+}
+.button1:hover span.align {
+	display: none;
+}
+.button1:hover span.add-label {
+	display: block;
+	padding: 0em 0.4em;
+}
+
+/* info corner button */
+
+.info {
+	float: right;
+	color: white;
+	padding: 0.2em 0.4em;
+	text-decoration: none;
+	font-family: "Oswald", sans-serif;
+	font-size: 0.8em;
+}
+
+.info:hover {
+	background-color: white;
+	color: rgb(64, 96, 145);
+	border-radius: 0.15em 0em;
+}
+
+/* styling options in dropdown */
+
+optgroup {
+	font-size: 1.3em;
+}
+
+/*card 2 dark theme */
+
+.card2 {
+	background-color: rgb(106, 133, 190);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;	
+}
+
+.card2>.card2Body>form>.formBody {
+	background-color: rgb(106, 133, 190);
+	padding-top: 0.5em;
+}
+
+
+
+.card2Body > h1, .card2Body > h5{
+	color: white;
+	margin: 0;
+	position: relative;
+	top: -10px;
+}
+
+.card2Body {
+	flex-direction: column;
+	align-self: center;
+	width: 100%;
+}
+
+.card2image {
+    position: relative;
+	left: 13px;
+	padding-top: 1em;
+	object-fit: contain;
+	max-width: 100%;
+  	height: auto;
+
+}
+
+.imgBG {
+	max-width: 400px;
+	align-self: center;
+}
+
+.imgBGbottom {
+	max-width: 400px;
+	align-self: center;
+
+  -webkit-transform: scaleY(-1) scaleX(-1);
+  transform: scaleY(-1) scaleX(-1);
+}
+
+.formwrapper {
+	padding: 2em 0em;
+}
