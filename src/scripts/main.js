@@ -9,6 +9,41 @@ let journalArray = [
 		concepts: "DOM Stuffs",
 		text:
 			"uploaded some stuff to the DOM, smitches, uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches"
+	},
+	{
+		date: "07/24/2018",
+		mood: "ni &#128516;",
+		concepts: "DOM Stuffs",
+		text:
+			"uploaded some stuff to the DOM, smitches, uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches"
+	},
+	{
+		date: "07/24/2018",
+		mood: "ni &#128516;",
+		concepts: "DOM Stuffs",
+		text:
+			"uploaded some stuff to the DOM, smitches, uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches"
+	},
+	{
+		date: "07/24/2018",
+		mood: "ni &#128516;",
+		concepts: "DOM Stuffs",
+		text:
+			"uploaded some stuff to the DOM, smitches, uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches"
+	},
+	{
+		date: "07/24/2018",
+		mood: "ni &#128516;",
+		concepts: "DOM Stuffs",
+		text:
+			"uploaded some stuff to the DOM, smitches, uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches"
+	},
+	{
+		date: "07/24/2018",
+		mood: "ni &#128516;",
+		concepts: "DOM Stuffs",
+		text:
+			"uploaded some stuff to the DOM, smitches, uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches"
 	}
 ];
 
@@ -47,10 +82,11 @@ console.log(journalContainer);
 journalArray.forEach(item => {
 	let Jcontent = `
 	<div class="jContainer">
-		<h5 class="JTopLine">Date: ${item.date}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Mood: ${item.mood}<h5>
-		<hr>
-		<p>${item.concepts}
-		<hr>
+		
+		<h5 class="JTopLine"><span class="date">Date: ${item.date} </span> <span class="mood"> Mood: ${item.mood} </span><h5>
+		
+		<p class="concept">${item.concepts}
+		
 		<p>${item.text}
 	<div>
 	

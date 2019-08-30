@@ -230,15 +230,16 @@ optgroup {
 }
 
 .jContainer {
-	color: rgb(29, 29, 29);
+	color: rgb(255, 255, 255);
 	border-radius: 5px;
 	padding: 1em;
 	margin: 1em;
 	max-width: 330px;
-	background-image: url("/src/images/bg.jpg");
-	background-attachment: fixed;
+	background-image: url("/src/images/bg05.jpg");
+	/* background-attachment: fixed; */
+	background-size: cover;
 	background-position: bottom;
-	background-color: rgb(238, 238, 238) !important;
+	background-color: rgba(34, 29, 29, 0.719) !important;
 
 	background-blend-mode: color;
 }
@@ -309,4 +310,35 @@ optgroup {
 	padding: 50px;
 	width: 50%;
 	background: #aaa;
+} */
+
+.JTopLine {
+	font-weight: bold;
+	font-size: 1em;
+	margin-bottom: 1em;
+	display: flex;
+	justify-content: space-between;
+}
+
+.concept {
+	font-weight: bold;
+	background-color: #ffffff;
+	border-radius: 10px;
+	padding: 0.3em;
+	transition: 0.2s;
+	color: black;
+}
+
+.concept:hover {
+	background-color: rgb(106, 133, 190);
+	color: rgb(255, 255, 255);
+	transition: 0.2s;
+}
+
+/* .date {
+	float: left;
+}
+
+.mood {
+	float: right;
 } */
