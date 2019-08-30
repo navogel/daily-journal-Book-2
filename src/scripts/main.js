@@ -5,43 +5,43 @@ console.log("hello");
 let journalArray = [
 	{
 		date: "07/24/2018",
-		mood: "ni &#128516;",
-		concepts: "DOM Stuffs",
+		mood: "ni  &#129324;",
+		concepts: "Shubbery",
 		text:
 			"uploaded some stuff to the DOM, smitches, uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches"
 	},
 	{
-		date: "07/24/2018",
-		mood: "ni &#128516;",
-		concepts: "DOM Stuffs",
+		date: "08/24/2038",
+		mood: "ni &#128528",
+		concepts: "Roger the Shrubber",
 		text:
 			"uploaded some stuff to the DOM, smitches, uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches"
 	},
 	{
-		date: "07/24/2018",
+		date: "09/24/2218",
 		mood: "ni &#128516;",
-		concepts: "DOM Stuffs",
+		concepts: "No one expects a Spannish Shrubbery",
 		text:
 			"uploaded some stuff to the DOM, smitches, uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches"
 	},
 	{
-		date: "07/24/2018",
+		date: "19/24/2018",
 		mood: "ni &#128516;",
-		concepts: "DOM Stuffs",
+		concepts: "Nice tiered effect",
 		text:
 			"uploaded some stuff to the DOM, smitches, uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches"
 	},
 	{
-		date: "07/24/2018",
-		mood: "ni &#128516;",
-		concepts: "DOM Stuffs",
+		date: "37/24/2418",
+		mood: "ni &#128528",
+		concepts: "Sir Robin",
 		text:
 			"uploaded some stuff to the DOM, smitches, uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches"
 	},
 	{
-		date: "07/24/2018",
-		mood: "ni &#128516;",
-		concepts: "DOM Stuffs",
+		date: "77/24/2099",
+		mood: "ni  &#129324;",
+		concepts: "Holy Grail",
 		text:
 			"uploaded some stuff to the DOM, smitches, uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches,uploaded some stuff to the DOM, smitches"
 	}
