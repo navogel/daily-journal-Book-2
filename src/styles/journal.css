@@ -1,5 +1,6 @@
-
-* {box-sizing: border-box}
+* {
+	box-sizing: border-box;
+}
 
 ::placeholder {
 	color: rgb(48, 48, 48);
@@ -11,7 +12,6 @@ body {
 	justify-content: center;
 }
 /* styling the pieces of the form */
-
 
 #entry {
 	font-family: "Oswald", sans-serif;
@@ -78,7 +78,7 @@ form {
 .formBody {
 	border-radius: 5px;
 	max-width: 350px;
-    margin: auto;
+	margin: auto;
 }
 
 /* Styling the title */
@@ -96,7 +96,7 @@ h5 {
 	font-family: "Oswald", sans-serif;
 	text-align: center;
 	margin-top: 0;
-	font-weight: 200
+	font-weight: 200;
 }
 
 /* styling the submit button */
@@ -146,9 +146,9 @@ span.add-label {
 /* info corner button */
 
 .info {
-	float: right;
+	align-self: flex-end;
 	color: white;
-	padding: 0.2em 0.4em;
+	padding: 0.5em 0.5em 0.5em 0.8em;
 	text-decoration: none;
 	font-family: "Oswald", sans-serif;
 	font-size: 0.8em;
@@ -157,7 +157,7 @@ span.add-label {
 .info:hover {
 	background-color: white;
 	color: rgb(64, 96, 145);
-	border-radius: 0.15em 0em;
+	border-radius: 10px 0em 10px 0em;
 }
 
 /* styling options in dropdown */
@@ -173,17 +173,17 @@ optgroup {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 100%;	
+	width: 100%;
+	border-radius: 10px;
 }
 
-.card2>.card2Body>form>.formBody {
+.card2 > .card2Body > form > .formBody {
 	background-color: rgb(106, 133, 190);
 	padding-top: 0.5em;
 }
 
-
-
-.card2Body > h1, .card2Body > h5{
+.card2Body > h1,
+.card2Body > h5 {
 	color: white;
 	margin: 0;
 	position: relative;
@@ -197,13 +197,12 @@ optgroup {
 }
 
 .card2image {
-    position: relative;
-	left: 13px;
+	position: relative;
+	left: 11px;
 	padding-top: 1em;
 	object-fit: contain;
 	max-width: 100%;
-  	height: auto;
-
+	height: auto;
 }
 
 .imgBG {
@@ -215,10 +214,99 @@ optgroup {
 	max-width: 400px;
 	align-self: center;
 
-  -webkit-transform: scaleY(-1) scaleX(-1);
-  transform: scaleY(-1) scaleX(-1);
+	-webkit-transform: scaleY(-1) scaleX(-1);
+	transform: scaleY(-1) scaleX(-1);
 }
 
 .formwrapper {
-	padding: 2em 0em;
+	padding: 1em 0em 0em 0em;
 }
+
+.entryLog {
+	display: flex;
+	align-self: center;
+	flex-direction: column;
+	display: none;
+}
+
+.jContainer {
+	color: rgb(29, 29, 29);
+	border-radius: 5px;
+	padding: 1em;
+	margin: 1em;
+	max-width: 330px;
+	background-image: url("/src/images/bg.jpg");
+	background-attachment: fixed;
+	background-position: bottom;
+	background-color: rgb(238, 238, 238) !important;
+
+	background-blend-mode: color;
+}
+
+.button2 {
+	text-align: center;
+	color: white;
+	/* padding: 0.2em 0.4em; */
+	text-decoration: none;
+	font-family: "Oswald", sans-serif;
+	font-size: 0.8em;
+	transition: 0.2s;
+}
+
+.button2:hover {
+	background-color: white;
+	color: rgb(64, 96, 145);
+	/* border-radius: 0.15em 0.15em; */
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.spaceAbove {
+	height: 10px;
+	border-radius: 0px 0px 15px 15px;
+	background: rgb(106, 133, 190);
+	padding-top: 0;
+	margin-top: 0;
+	margin-bottom: 0.2em;
+}
+
+.spaceBelow {
+	height: 10px;
+	border-radius: 15px 15px 0px 0px;
+	background: rgb(106, 133, 190);
+	padding-bottom: 0;
+	margin-bottom: 0;
+	margin-top: 0.2em;
+}
+
+/* .pwrapper {
+	width: 100vw;
+	height: 100vh;
+	padding-top: 20vh;
+	box-sizing: border-box;
+}
+
+.pwrapper::before {
+	content: "";
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-image: url("/src/images/bg.jpg");
+	position: absolute;
+	z-index: -1;
+}
+
+.rwrapper {
+	width: 100vw;
+	height: 100vh;
+	padding-top: 20vh;
+	background-image: url("/src/images/bg.jpg");
+}
+
+.tent {
+	margin: auto;
+	padding: 50px;
+	width: 50%;
+	background: #aaa;
+} */
