@@ -327,10 +327,11 @@ optgroup {
 	padding: 0.3em;
 	transition: 0.3s;
 	color: black;
+	letter-spacing: 0.1em;
 }
 
-.concept:hover {
-	background-color: rgb(106, 133, 190);
+.jContainer:hover .concept {
+	background-color: rgb(197, 128, 0);
 	color: rgb(255, 255, 255);
 	transition: 0.3s;
 }

@@ -73,38 +73,25 @@ console.log("hello");
 
 //linking the empty entrylog div to the js container
 
-const journalContainer = document.querySelector("#entryLog");
-
 console.log(journalContainer);
 
 //put journal entries from array into the DOM
 
-fetch("http://localhost:3000/journalArray") // Fetch from the API
-	.then(poo => poo.json()) // Parse as JSON
-	.then(entries => {
-		// What should happen when we finally have the array?
-		entries.forEach(item => {
-			let Jcontent = `
-	<div class="jContainer">
-		
-		<h5 class="JTopLine"><span class="date">Date: ${item.date} </span> <span class="mood"> Mood: ${item.mood} </span><h5>
-		
-		<p class="concept">${item.concepts}
-		
-		<p>${item.text}
-	<div>
-	
-	`;
-			journalContainer.innerHTML += Jcontent;
-		});
-	});
-
 //function to show/hide journal entries
-function showMe() {
-	var x = document.getElementById("entryLog");
-	if (x.style.display === "block") {
-		x.style.display = "none";
-	} else {
-		x.style.display = "block";
-	}
-}
+
+/*
+    Main application logic that uses the functions and objects
+    defined in the other JavaScript files.
+
+    Change the fake variable names below to what they should be
+    to get the data and display it.
+*/
+API.getJournalEntries().then(data => addToDom(data));
+
+document.querySelector(".button1").addEventListener("click", event => {
+	let dateInput = document.querySelector("#journalDate").value;
+	let moodInput = document.querySelector("#mood").value;
+	let conceptsInput = document.querySelector("#concepts").value;
+	let entryInput = document.querySelector("#entry").value;
+	console.log(dateInput, moodInput, conceptsInput, entryInput);
+});
