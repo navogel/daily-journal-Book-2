@@ -232,7 +232,7 @@ optgroup {
 .jContainer {
 	color: rgb(255, 255, 255);
 	border-radius: 5px;
-	padding: 1em 1em .2em 1em;
+	padding: 1em 1em 0.2em 1em;
 	margin: 1em;
 	max-width: 330px;
 	background-image: url("/src/images/bg05.jpg");
@@ -345,5 +345,4 @@ optgroup {
 
 .Jcontainer > h5 {
 	margin-bottom: -1em;
-	
-
+}
