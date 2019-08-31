@@ -245,6 +245,7 @@ optgroup {
 	background-size: cover;
 	background-position: bottom;
 	background-color: rgba(12, 12, 44, 0.664) !important;
+	transition: 0.5s;
 
 	background-blend-mode: color;
 }
@@ -347,6 +348,11 @@ optgroup {
 	background-color: #f38f00;
 	color: rgb(255, 255, 255);
 	transition: 0.3s;
+}
+
+.jContainer:hover {
+	transform: scale(1.2);
+	transition: 0.5s;
 }
 
 /* .date {
