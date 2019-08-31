@@ -269,7 +269,9 @@ optgroup {
 }
 
 .height {
-	margin: 1em;
+	margin: 1em 0em;
+	padding-left: 3vw;
+	padding-right: 3vw;
 }
 
 .spaceAbove {
@@ -399,9 +401,12 @@ a.button3:hover {
 .arrow-down {
 	width: 0;
 	height: 0;
-	border-left: 15px solid transparent;
-	border-right: 15px solid transparent;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
 	border-top: 10px solid rgb(106, 133, 190);
 	position: relative;
 	top: 17px;
+	border-radius: 5px 5px 5px 0px;
+	margin: 0em 2em;
+	transition: 0.3s;
 }
