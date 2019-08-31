@@ -56,10 +56,10 @@
 							</div>
 
 							<div class="formBottom">
-								<a class="button1"
-									><span class="align">SAY</span
-									><span class="add-label">Ni</span></a
-								>
+								<a class="button1">
+									<span class="align">SAY</span>
+									<span class="add-label">Ni</span>
+								</a>
 							</div>
 						</div>
 					</form>
@@ -68,12 +68,17 @@
 
 			<div class="button2" onclick="showMe()">
 				<div class="spaceAbove"></div>
-				see my journi
+				<span class="arrow-down"></span>
+				<span class="height">see my journi </span>
+				<span class="arrow-down"></span>
 
 				<div class="spaceBelow"></div>
 			</div>
-
-			<article class="entryLog" id="entryLog"></article>
+			<div class="hide" id="hide">
+				<a class="reverse button3">sort: old</a>
+				<a class="normal button3">sort: new</a>
+				<article class="entryLog" id="entryLog"></article>
+			</div>
 			<div class="imgBGbottom">
 				<img class="card2image" src="/src/images/moon2a.png" />
 			</div>
@@ -88,9 +93,9 @@
 		<!-- end of form wrapper-->
 
 		<script src="scripts/events.js"></script>
-		<script src="scripts/data.js"></script>
+		<!-- <script src="scripts/data.js"></script>
 		<script src="scripts/entriesDOM.js"></script>
-		<script src="scripts/entryComponent.js"></script>
-		<script src="scripts/main.js"></script>
+		<script src="scripts/entryComponent.js"></script> -->
+		<script type="module" src="scripts/main.js"></script>
 	</body>
 </html>

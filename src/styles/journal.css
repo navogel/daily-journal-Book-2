@@ -121,6 +121,7 @@ a.button1 {
 a.button1:hover {
 	color: rgb(64, 96, 145);
 	background-color: white;
+	cursor: pointer;
 }
 
 @media all and (max-width: 30em) {
@@ -226,7 +227,11 @@ optgroup {
 	display: flex;
 	align-self: center;
 	flex-direction: column;
+}
+
+.hide {
 	display: none;
+	flex-direction: column;
 }
 
 .jContainer {
@@ -252,6 +257,7 @@ optgroup {
 	font-family: "Oswald", sans-serif;
 	font-size: 0.8em;
 	transition: 0.2s;
+	cursor: pointer;
 }
 
 .button2:hover {
@@ -262,13 +268,17 @@ optgroup {
 	transition: 0.2s;
 }
 
+.height {
+	margin: 1em;
+}
+
 .spaceAbove {
 	height: 10px;
 	border-radius: 0px 0px 15px 15px;
 	background: rgb(106, 133, 190);
 	padding-top: 0;
 	margin-top: 0;
-	margin-bottom: 0.2em;
+	margin-bottom: 0.5em;
 }
 
 .spaceBelow {
@@ -277,7 +287,7 @@ optgroup {
 	background: rgb(106, 133, 190);
 	padding-bottom: 0;
 	margin-bottom: 0;
-	margin-top: 0.2em;
+	margin-top: 0.5em;
 }
 
 /* .pwrapper {
@@ -346,4 +356,53 @@ optgroup {
 
 .Jcontainer > h5 {
 	margin-bottom: -1em;
+}
+
+a.button3 {
+	display: inline-block;
+	/* padding: 0.1em 1.5em; */
+	border: 0.07em solid white;
+	/* margin: auto; */
+	border-radius: 0.15em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: "Oswald", sans-serif;
+	font-weight: 500;
+	color: rgb(64, 96, 145);
+	text-align: center;
+	transition: all 0.2s;
+	/* margin-top: 1em; */
+	margin-bottom: 0;
+	background-color: white;
+	width: 65px;
+	z-index: 10;
+}
+
+a.button3:hover {
+	color: white;
+	background-color: rgb(64, 96, 145);
+	cursor: pointer;
+}
+
+.reverse {
+	position: fixed;
+	right: 15px;
+	bottom: 5%;
+}
+
+.normal {
+	position: fixed;
+	right: 15px;
+	bottom: 10%;
+}
+
+.arrow-down {
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 10px solid rgb(106, 133, 190);
+	position: relative;
+	top: 17px;
+	float: ;
 }
