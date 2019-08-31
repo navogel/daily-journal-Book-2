@@ -22,22 +22,24 @@
 				<div class="card2Body">
 					<h1>du JourNi</h1>
 					<h5>a daily journal</h5>
-					<form action="">
+					<form id="formBody" action="">
 						<div class="formBody">
 							<div class="formTop">
 								<input type="date" placeholder="journalDate" id="journalDate" />
 								<select id="mood">
 									<optgroup>
-										<option value="mood">Mood</option>
-										<option value="happy"> Ni &#128516; &nbsp;&nbsp; </option>
-										<option value="angelic">Ni &#128519;&nbsp;</option>
-										<option value="nuetral">Ni &#128528;&nbsp;</option>
-										<option value="cowboy">Ni &#129312;&nbsp;</option>
-										<option value="intrigued">Ni &#129320;&nbsp; </option>
-										<option value="angry">Ni &#129324; &nbsp;</option>
-										<option value="laughing">Ni &#128518;&nbsp;</option>
-										<option value="dizzy">Ni &#128565;&nbsp;</option>
-										<option value="starstruck">Ni &#129321;&nbsp;</option>
+										<option disabled selected value="">Mood</option>
+										<option value="Ni &#128516;">
+											Ni &#128516; &nbsp;&nbsp;
+										</option>
+										<option value="Ni &#128519;">Ni &#128519;&nbsp;</option>
+										<option value="Ni &#128528;">Ni &#128528;&nbsp;</option>
+										<option value="Ni &#129312;">Ni &#129312;&nbsp;</option>
+										<option value="Ni &#129320;">Ni &#129320;&nbsp;</option>
+										<option value="Ni &#129324;">Ni &#129324;&nbsp;</option>
+										<option value="Ni &#128518;">Ni &#128518;&nbsp;</option>
+										<option value="Ni &#128565;">Ni &#128565;&nbsp;</option>
+										<option value="Ni &#129321;">Ni &#129321;&nbsp;</option>
 									</optgroup>
 								</select>
 							</div>
@@ -52,12 +54,9 @@
 								<textarea
 									name="journalEntry"
 									id="entry"
-									onfocus="clearContents(this);"
 									rows="3"
-								>
- Enter all the things.
-                                </textarea
-								>
+									placeholder=" Enter all the things"
+								></textarea>
 							</div>
 
 							<div class="formBottom">
@@ -89,8 +88,25 @@
 				<div class="spaceBelow"></div>
 			</div>
 			<div class="hide" id="hide">
-				<a class="reverse button3">sort: old</a>
-				<a class="normal button3">sort: new</a>
+				<div class="filterBG">
+					<a class="reverse button3">sort: old</a>
+					<a class="normal button3">sort: new</a>
+					<a class="button3 resetFilter">reset</a>
+					<select id="moodSelector" class="moodFilter">
+						<optgroup>
+							<option disabled selected value="">Mood</option>
+							<option value="Ni &#128516;">Ni &#128516;&nbsp;</option>
+							<option value="Ni &#128519;">Ni &#128519;&nbsp;</option>
+							<option value="Ni &#128528;">Ni &#128528;&nbsp;</option>
+							<option value="Ni &#129312;">Ni &#129312;&nbsp;</option>
+							<option value="Ni &#129320;">Ni &#129320;&nbsp;</option>
+							<option value="Ni &#129324;">Ni &#129324;&nbsp;</option>
+							<option value="Ni &#128518;">Ni &#128518;&nbsp;</option>
+							<option value="Ni &#128565;">Ni &#128565;&nbsp;</option>
+							<option value="Ni &#129321;">Ni &#129321;&nbsp;</option>
+						</optgroup>
+					</select>
+				</div>
 				<article class="entryLog" id="entryLog"></article>
 			</div>
 			<div class="imgBGbottom">
@@ -103,6 +119,20 @@
 				href="https://www.youtube.com/watch?v=oas2l8MnyC0"
 				>info</a
 			>
+			<!-- Trigger/Open The Modal -->
+			<button style="display: none" id="myBtn">Open Modal</button>
+
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+				<!-- Modal content -->
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>
+						We accept your Ni! <br> It is a good submission, I like the laurels
+						particularly.
+					</p>
+				</div>
+			</div>
 		</div>
 		<!-- end of form wrapper-->
 

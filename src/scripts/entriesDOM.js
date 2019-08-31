@@ -19,6 +19,15 @@ const injectDOM = {
 		entries.forEach(item => {
 			journalContainer.innerHTML += webComponent.entryHTML(item);
 		});
+	},
+	filterMood: function(entry, mood) {
+		const journalContainer = document.querySelector("#entryLog");
+		journalContainer.innerHTML = "";
+		entry.forEach(entry => {
+			if (entry.mood === mood) {
+				journalContainer.innerHTML += webComponent.entryHTML(entry);
+			}
+		});
 	}
 };
 

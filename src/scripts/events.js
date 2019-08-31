@@ -9,7 +9,7 @@ function showMe() {
 
 function getLarge() {
 	var x = document.getElementById("height");
-	x.style.transform = "scale(1.8)";
+	x.style.transform = "scale(1.5)";
 	x.style.transition = ".5s";
 	x.style.backgroundColor = "#f38f00";
 	x.style.borderRadius = "7px";
@@ -28,13 +28,3 @@ function getSmall() {
 function clearContents(element) {
 	element.value = "";
 }
-
-// color for orange #ffb900  color for card bg #151b3d
-
-// document.querySelector(".button1").addEventListener("click", event => {
-// 	let dateInput = document.querySelector("#journalDate").value;
-// 	let moodInput = document.querySelector("#mood").value;
-// 	let conceptsInput = document.querySelector("#concepts").value;
-// 	let entryInput = document.querySelector("#entry").value;
-// 	const newJournalEntry = {`date: ${dateInput}, moode: ${moodInput}, concepts: ${conceptsInput}, text: ${entryInput}`);
-// });
