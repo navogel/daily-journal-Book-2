@@ -49,7 +49,12 @@
 								/>
 							</div>
 							<div class="formEntry">
-								<textarea name="journalEntry" id="entry" rows="3">
+								<textarea
+									name="journalEntry"
+									id="entry"
+									onfocus="clearContents(this);"
+									rows="3"
+								>
  Enter all the things.
                                 </textarea
 								>
@@ -66,12 +71,19 @@
 				</div>
 			</div>
 
-			<div class="button2" onclick="showMe()">
+			<div
+				class="button2"
+				onclick="showMe()"
+				onmouseover="getLarge()"
+				onmouseout="getSmall()"
+			>
 				<div class="spaceAbove"></div>
 				<!-- <span class="arrow-down"></span> -->
-				<span class="arrow-down"></span>
-				<span class="height">see my journi </span>
-				<span class="arrow-down"></span>
+				<div id="showEntries">
+					<div class="arrow-down"></div>
+					<div class="height" id="height">the journi so far...</div>
+					<div class="arrow-down"></div>
+				</div>
 				<!-- <span class="arrow-down"></span> -->
 
 				<div class="spaceBelow"></div>
