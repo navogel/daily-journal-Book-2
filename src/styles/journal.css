@@ -148,7 +148,7 @@ span.add-label {
 /* info corner button */
 
 .info {
-	align-self: flex-end;
+	align-self: baseline;
 	color: white;
 	padding: 0.5em 0.5em 0.5em 0.8em;
 	text-decoration: none;
@@ -159,7 +159,7 @@ span.add-label {
 .info:hover {
 	background-color: white;
 	color: rgb(64, 96, 145);
-	border-radius: 10px 0em 10px 0em;
+	border-radius: 0px 10px 0px 10px;
 }
 
 /* styling options in dropdown */
