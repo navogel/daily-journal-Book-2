@@ -40,7 +40,7 @@ const injectDOM = {
 				entry.concepts.toLowerCase().search(searchTerm.toLowerCase()) != -1
 			) {
 				entry.text = entry.text.replace(
-					new RegExp(searchTerm, "gi"),
+					searchTerm,
 					match => `<mark>${match}</mark>`
 				);
 

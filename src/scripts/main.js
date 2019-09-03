@@ -48,7 +48,7 @@ const newJournalEntry = document
 			API.saveJournalEntry(totalEntry);
 			//inject at the top of the journal entry container
 			injectDOM.addEntToDom(totalEntry);
-			//clear text input fields
+			//clear text input fields REFACTER to while loop using object
 			document.getElementById("journalDate").value = "";
 			document.getElementById("mood").value = "";
 			document.getElementById("concepts").value = "";

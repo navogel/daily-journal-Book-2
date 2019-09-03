@@ -1,12 +1,12 @@
 //API Station
 
 const API = {
-	getJournalEntries: function() {
+	getJournalEntries: () => {
 		return fetch("http://localhost:3000/journalArray").then(response =>
 			response.json()
 		);
 	},
-	saveJournalEntry: function(entry) {
+	saveJournalEntry: entry => {
 		fetch("http://localhost:3000/journalArray", {
 			method: "POST",
 			headers: {
