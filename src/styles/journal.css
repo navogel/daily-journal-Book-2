@@ -523,3 +523,8 @@ body::-webkit-scrollbar-thumb {
 	justify-content: center;
 	padding: 1em 2em 0.7em 2em;
 }
+
+.entryText {
+	text-align: left;
+	padding: 0em 1em;
+}
