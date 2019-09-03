@@ -1,20 +1,32 @@
+//say hi
+
 console.log("hello");
 
 import injectDOM from "/src/scripts/entriesDOM.js";
-// import showMe from "/src/scripts/events.js";
 import API from "/src/scripts/data.js";
 
+//not working for some reason?
+// import showMe from "/src/scripts/events.js";
+
+//Get journal entries
+
 API.getJournalEntries()
+	//sort entries
 	.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
+	//take data and add to DOM
 	.then(data => injectDOM.addToDom(data));
 
+//create new journal entry and add to the DOM
 const newJournalEntry = document
+	//add event listener for button
 	.querySelector(".button1")
 	.addEventListener("click", event => {
+		//declare variables to form value - REFACTOR
 		let dateInput = document.querySelector("#journalDate").value;
 		let moodInput = document.querySelector("#mood").value;
 		let conceptsInput = document.querySelector("#concepts").value;
 		let entryInput = document.querySelector("#entry").value;
+		//check if the fields are empty
 		if (entryInput === "") {
 			window.alert("FILL OUT THE FORM");
 		} else if (moodInput === "") {
@@ -24,6 +36,7 @@ const newJournalEntry = document
 		} else if (dateInput === "") {
 			window.alert("YEAH YOU NEED A DATE TOO");
 		} else {
+			//create object
 			const totalEntry = {
 				date: dateInput,
 				mood: moodInput,
@@ -31,18 +44,21 @@ const newJournalEntry = document
 				text: entryInput
 			};
 			console.log(totalEntry);
+			//save to DB
 			API.saveJournalEntry(totalEntry);
+			//inject at the top of the journal entry container
 			injectDOM.addEntToDom(totalEntry);
+			//clear text input fields
 			document.getElementById("journalDate").value = "";
 			document.getElementById("mood").value = "";
 			document.getElementById("concepts").value = "";
 			document.getElementById("entry").value = "";
-
-			var modal = document.getElementById("myModal");
-			var btn = document.getElementById("myBtn");
-			var span = document.getElementsByClassName("close")[0];
+			//open modal validating submission - declare vars REFACTOR with ERROR?
+			let modal = document.getElementById("myModal");
+			let span = document.getElementsByClassName("close")[0];
 			modal.style.display = "block";
-			span.onclick = function() {
+			//click on close button or anywhere on the window to close modal
+			span.onclick = () => {
 				modal.style.display = "none";
 			};
 			window.onclick = function(event) {
@@ -53,24 +69,28 @@ const newJournalEntry = document
 		}
 	});
 
+//sorting oldest first by ID
 document.querySelector(".reverse").addEventListener("click", event => {
 	API.getJournalEntries()
 		.then(data => data.sort((a, b) => parseFloat(a.id) - parseFloat(b.id)))
 		.then(data => injectDOM.RefreshDOM(data));
 });
 
+//sorting by newest entries first
 document.querySelector(".normal").addEventListener("click", event => {
 	API.getJournalEntries()
 		.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
 		.then(data => injectDOM.RefreshDOM(data));
 });
 
+//rest any filters
 document.querySelector(".resetFilter").addEventListener("click", event => {
 	API.getJournalEntries()
 		.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
 		.then(data => injectDOM.RefreshDOM(data));
 });
 
+//filter by mood
 document.querySelector("#moodSelector").addEventListener("input", event => {
 	API.getJournalEntries()
 		.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
@@ -79,10 +99,19 @@ document.querySelector("#moodSelector").addEventListener("input", event => {
 		);
 });
 
-// .then(data.sort((a, b) => parseFloat(a.id) - parseFloat(b.id));
+//search entries and post results
 
-// function listQ() {
-// 	changedText.textContent = this.value;
-// }
-// /* $("#list").on("change",listQ); */
-// document.getElementById("list").onchange = listQ;
+document
+	.querySelector("#searchEntries")
+	.addEventListener("keypress", function(e) {
+		if (e.key === "Enter") {
+			API.getJournalEntries()
+				.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
+				.then(data =>
+					injectDOM.searchEntries(
+						data,
+						document.querySelector("#searchEntries").value
+					)
+				);
+		}
+	});
