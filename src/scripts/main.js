@@ -83,7 +83,7 @@ document.querySelector(".normal").addEventListener("click", event => {
 		.then(data => injectDOM.RefreshDOM(data));
 });
 
-//rest any filters
+//reset any filters
 document.querySelector(".resetFilter").addEventListener("click", event => {
 	API.getJournalEntries()
 		.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
@@ -115,3 +115,17 @@ document
 				);
 		}
 	});
+
+//delete posts
+
+document.querySelector(".hide").addEventListener("click", event => {
+	if (event.target.id.startsWith("deleteRecipe--")) {
+		const entryToDelete = event.target.id.split("--")[1];
+		API.deleteEntry(entryToDelete);
+		API.getJournalEntries()
+			.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
+			.then(data => injectDOM.RefreshDOM(data));
+	}
+});
+
+//modify posts
