@@ -13,11 +13,11 @@
 	</head>
 	<body>
 		<div class="card2">
-			<!-- form wrapper dark theme -->
+			<!-- form BG  -->
 			<div class="imgBG">
 				<img class="card2image" src="/src/images/moon.png" />
 			</div>
-			<!-- <img class="card2image" src="/src/images/moon.png"> -->
+			<!-- form contents wrapper-->
 			<div class="formwrapper">
 				<div class="card2Body">
 					<h1>du JourNi</h1>
@@ -69,7 +69,7 @@
 					</form>
 				</div>
 			</div>
-
+			<!-- button that opens up journal entries-->
 			<div
 				class="button2"
 				onclick="showMe()"
@@ -77,16 +77,14 @@
 				onmouseout="getSmall()"
 			>
 				<div class="spaceAbove"></div>
-				<!-- <span class="arrow-down"></span> -->
 				<div id="showEntries">
 					<div class="arrow-down"></div>
 					<div class="height" id="height">see the journi so far...</div>
 					<div class="arrow-down"></div>
 				</div>
-				<!-- <span class="arrow-down"></span> -->
-
 				<div class="spaceBelow"></div>
 			</div>
+			<!-- hidden div starts here with search bar and menu buttons-->
 			<div class="hide" id="hide">
 				<div class="searchBar">
 					<div id="searchBtn">search</div>
@@ -117,6 +115,7 @@
 					<div class="reverse button3">sort: old</div>
 					<div class="normal button3">sort: new</div>
 				</div>
+				<!-- div to enject journal entries-->
 				<article class="entryLog" id="entryLog"></article>
 			</div>
 			<div class="imgBGbottom">
