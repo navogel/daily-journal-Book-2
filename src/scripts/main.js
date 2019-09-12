@@ -126,10 +126,11 @@ document
 document.querySelector(".hide").addEventListener("click", event => {
 	if (event.target.id.startsWith("deleteEntry--")) {
 		const entryToDelete = event.target.id.split("--")[1];
-		API.deleteEntry(entryToDelete);
-		API.getJournalEntries()
-			.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
-			.then(data => injectDOM.RefreshDOM(data));
+		API.deleteEntry(entryToDelete).then(() => {
+			API.getJournalEntries()
+				.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
+				.then(data => injectDOM.RefreshDOM(data));
+		});
 	}
 });
 
