@@ -45,7 +45,7 @@ const API = {
 			text: document.querySelector("#entry").value
 		};
 		fetch(`http://localhost:3000/journalArray/${entryId}`, {
-			method: "PUT",
+			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json"
 			},
