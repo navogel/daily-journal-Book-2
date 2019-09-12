@@ -128,7 +128,7 @@ a.button1:hover {
 @media all and (max-width: 30em) {
 	a.button1 {
 		display: block;
-		margin: 0.4em auto;
+		fmargin: 0.4em auto;
 	}
 }
 
@@ -527,4 +527,8 @@ body::-webkit-scrollbar-thumb {
 .entryText {
 	text-align: left;
 	padding: 0em 1em;
+}
+
+.formWrapperHidden {
+	display: none;
 }

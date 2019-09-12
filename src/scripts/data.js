@@ -17,10 +17,38 @@ const API = {
 			body: JSON.stringify(entry)
 		});
 	},
+	//delete entry
 	deleteEntry: entryId => {
 		return fetch(`http://localhost:3000/journalArray/${entryId}`, {
 			method: "DELETE"
-		}).then(response => response.json());
+		});
+	},
+	//fetch single entry by ID
+	getEntry: entryId => {
+		return fetch(`http://localhost:3000/journalArray/${entryId}`).then(
+			response => response.json()
+		);
+	},
+	//edit entry
+
+	editEntry: entryId => {
+		const updatedObject = {
+			date: document.querySelector("#journalDate").value,
+			mood: document.querySelector("#mood").value,
+			concepts: document.querySelector("#concepts").value,
+			text: document.querySelector("#entry").value
+		};
+		fetch(`http://localhost:3000/journalArray/${entryId}`, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(updatedObject)
+		})
+			.then(res => res.json())
+			.then(() => {
+				document.querySelector("#entryId").value = "";
+			});
 	}
 };
 

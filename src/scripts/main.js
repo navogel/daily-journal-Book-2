@@ -17,7 +17,7 @@ API.getJournalEntries()
 	.then(data => injectDOM.addToDom(data));
 
 //create new journal entry and add to the DOM
-const newJournalEntry = document
+const addEntry = document
 	//add event listener for button
 	.querySelector(".button1")
 	.addEventListener("click", event => {
@@ -119,7 +119,7 @@ document
 //delete posts
 
 document.querySelector(".hide").addEventListener("click", event => {
-	if (event.target.id.startsWith("deleteRecipe--")) {
+	if (event.target.id.startsWith("deleteEntry--")) {
 		const entryToDelete = event.target.id.split("--")[1];
 		API.deleteEntry(entryToDelete);
 		API.getJournalEntries()
@@ -129,3 +129,61 @@ document.querySelector(".hide").addEventListener("click", event => {
 });
 
 //modify posts
+
+document.querySelector(".hide").addEventListener("click", event => {
+	if (event.target.id.startsWith("editEntry--")) {
+		const entryIdToEdit = event.target.id.split("--")[1];
+		updateFormFields(entryIdToEdit);
+	}
+});
+
+const updateFormFields = entryIdToEdit => {
+	let hiddenId = document.querySelector("#entryId");
+	let dateInput = document.querySelector("#journalDate");
+	let moodInput = document.querySelector("#mood");
+	let conceptsInput = document.querySelector("#concepts");
+	let entryInput = document.querySelector("#entry");
+	API.getEntry(entryIdToEdit).then(entry => {
+		hiddenId.value = entry.id;
+		dateInput.value = entry.date;
+		moodInput.value = entry.mood;
+		conceptsInput.value = entry.concepts;
+		entryInput.value = entry.text;
+	});
+};
+
+document.querySelector(".button1").addEventListener("click", event => {
+	const hiddenId = document.querySelector("#entryId");
+
+	if (hiddenId.value != "") {
+		API.editEntry(entryId).then(
+			API.getJournalEntries()
+				.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
+				.then(data => injectDOM.RefreshDOM(data))
+		);
+	} else {
+		let dateInput = document.querySelector("#journalDate").value;
+		let moodInput = document.querySelector("#mood").value;
+		let conceptsInput = document.querySelector("#concepts").value;
+		let entryInput = document.querySelector("#entry").value;
+
+		//create object
+		const totalEntry = {
+			date: dateInput,
+			mood: moodInput,
+			concepts: conceptsInput,
+			text: entryInput
+		};
+		console.log(totalEntry);
+		//save to DB
+		API.saveJournalEntry(totalEntry);
+		//inject at the top of the journal entry container
+		injectDOM.addEntToDom(totalEntry);
+		//clear text input fields REFACTER to while loop using object
+		document.getElementById("journalDate").value = "";
+		document.getElementById("mood").value = "";
+		document.getElementById("concepts").value = "";
+		document.getElementById("entry").value = "";
+		//open modal validating submission - declare vars REFACTOR with ERROR?
+	}
+});
