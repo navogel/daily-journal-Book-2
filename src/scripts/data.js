@@ -7,6 +7,12 @@ const API = {
 			response.json()
 		);
 	},
+	//get moods
+	getMoods: () => {
+		return fetch("http://localhost:3000/moods").then(response =>
+			response.json()
+		);
+	},
 	//save submitted entry to DB
 	saveJournalEntry: entry => {
 		fetch("http://localhost:3000/journalArray", {

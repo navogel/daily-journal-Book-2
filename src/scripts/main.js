@@ -4,9 +4,14 @@ console.log("hello");
 
 import injectDOM from "/src/scripts/entriesDOM.js";
 import API from "/src/scripts/data.js";
+import dropdown from "./moodDropdown.js";
 
 //not working for some reason?
 // import showMe from "/src/scripts/events.js";
+
+//dynamically populate mood dropdown from JSON database
+
+dropdown.moodDropdown();
 
 //Get journal entries
 
