@@ -15,7 +15,7 @@ const API = {
 	},
 	//save submitted entry to DB
 	saveJournalEntry: entry => {
-		fetch("http://localhost:3000/journalArray", {
+		return fetch("http://localhost:3000/journalArray", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -39,12 +39,12 @@ const API = {
 
 	editEntry: entryId => {
 		const updatedObject = {
-			date: document.querySelector("#journalDate").value,
-			mood: document.querySelector("#mood").value,
-			concepts: document.querySelector("#concepts").value,
-			text: document.querySelector("#entry").value
+			date: document.querySelector("#eJournalDate").value,
+			mood: document.querySelector("#eMood").value,
+			concepts: document.querySelector("#eConcepts").value,
+			text: document.querySelector("#eEntry").value
 		};
-		fetch(`http://localhost:3000/journalArray/${entryId}`, {
+		return fetch(`http://localhost:3000/journalArray/${entryId}`, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json"

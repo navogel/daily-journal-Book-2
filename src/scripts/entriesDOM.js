@@ -2,14 +2,15 @@
 import webComponent from "/src/scripts/entryComponent.js";
 
 const injectDOM = {
-	//inject multiple entries into the journal container
+	//inject multiple entries into the journal container   DEPRECATED for RefreshDOM
 	addToDom: function(entries) {
+		const journalContainer = document.querySelector("#entryLog");
+		journalContainer.innerHTML = "";
 		entries.forEach(item => {
-			const journalContainer = document.querySelector("#entryLog");
 			journalContainer.innerHTML += webComponent.entryHTML(item);
 		});
 	},
-	//inject an entry to the top of the journal container
+	//inject an entry to the top of the journal container  DEPRECATED for RefreshDOM
 	addEntToDom: function(entry) {
 		const journalContainer = document.querySelector("#entryLog");
 		journalContainer.innerHTML =

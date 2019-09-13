@@ -6,20 +6,22 @@ import injectDOM from "/src/scripts/entriesDOM.js";
 import API from "/src/scripts/data.js";
 import dropdown from "./moodDropdown.js";
 
+const actions = {
+	refresh: () => {
+		API.getJournalEntries()
+			.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
+			.then(data => injectDOM.RefreshDOM(data));
+	}
+};
+
 //not working for some reason?
 // import showMe from "/src/scripts/events.js";
 
 //dynamically populate mood dropdown from JSON database
-
 dropdown.moodDropdown();
 
-//Get journal entries
-
-API.getJournalEntries()
-	//sort entries
-	.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
-	//take data and add to DOM
-	.then(data => injectDOM.addToDom(data));
+//Get all journal entries, sort by newest first
+actions.refresh();
 
 //create new journal entry and add to the DOM
 
@@ -48,10 +50,10 @@ document.querySelector(".button1").addEventListener("click", event => {
 			text: entryInput
 		};
 		console.log(totalEntry);
-		//save to DB
-		API.saveJournalEntry(totalEntry);
+		//save to DB, then refresh DOM
+		API.saveJournalEntry(totalEntry).then(() => actions.refresh());
 		//inject at the top of the journal entry container
-		injectDOM.addEntToDom(totalEntry);
+
 		//clear text input fields REFACTER to while loop using object
 		document.getElementById("journalDate").value = "";
 		document.getElementById("mood").value = "";
@@ -82,16 +84,12 @@ document.querySelector(".reverse").addEventListener("click", event => {
 
 //sorting by newest entries first
 document.querySelector(".normal").addEventListener("click", event => {
-	API.getJournalEntries()
-		.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
-		.then(data => injectDOM.RefreshDOM(data));
+	actions.refresh();
 });
 
 //reset any filters
 document.querySelector(".resetFilter").addEventListener("click", event => {
-	API.getJournalEntries()
-		.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
-		.then(data => injectDOM.RefreshDOM(data));
+	actions.refresh();
 });
 
 //filter by mood
@@ -164,40 +162,17 @@ const updateFormFields = entryIdToEdit => {
 	span.onclick = () => {
 		modal.style.display = "none";
 	};
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	};
 };
 
-// document.querySelector(".button1").addEventListener("click", event => {
-// 	const hiddenId = document.querySelector("#entryId");
+document.querySelector(".button5").addEventListener("click", event => {
+	const hiddenId = document.querySelector("#entryId").value;
+	API.editEntry(hiddenId).then(() => actions.refresh());
+	let modal = document.getElementById("editModal");
+	modal.style.display = "none";
+})
 
-// 	if (hiddenId.value != "") {
-// 		API.editEntry(entryId).then(
-// 			API.getJournalEntries()
-// 				.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
-// 				.then(data => injectDOM.RefreshDOM(data))
-// 		);
-// 	} else {
-// 		let dateInput = document.querySelector("#journalDate").value;
-// 		let moodInput = document.querySelector("#mood").value;
-// 		let conceptsInput = document.querySelector("#concepts").value;
-// 		let entryInput = document.querySelector("#entry").value;
-
-// 		//create object
-// 		const totalEntry = {
-// 			date: dateInput,
-// 			mood: moodInput,
-// 			concepts: conceptsInput,
-// 			text: entryInput
-// 		};
-// 		console.log(totalEntry);
-// 		//save to DB
-// 		API.saveJournalEntry(totalEntry);
-// 		//inject at the top of the journal entry container
-// 		injectDOM.addEntToDom(totalEntry);
-// 		//clear text input fields REFACTER to while loop using object
-// 		document.getElementById("journalDate").value = "";
-// 		document.getElementById("mood").value = "";
-// 		document.getElementById("concepts").value = "";
-// 		document.getElementById("entry").value = "";
-// 		//open modal validating submission - declare vars REFACTOR with ERROR?
-// 	}
-// });
