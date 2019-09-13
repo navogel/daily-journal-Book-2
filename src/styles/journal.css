@@ -13,7 +13,8 @@ body {
 }
 /* styling the pieces of the form */
 
-#entry {
+#entry,
+#eEntry {
 	font-family: "Oswald", sans-serif;
 	width: -webkit-fill-available;
 	color: rgb(48, 48, 48);
@@ -22,7 +23,8 @@ body {
 	border: none;
 }
 
-#concepts {
+#concepts,
+#eConcepts {
 	width: -webkit-fill-available;
 	height: 2em;
 	border-radius: 0.15em;
@@ -31,7 +33,8 @@ body {
 	padding-left: 2px;
 }
 
-#journalDate {
+#journalDate,
+#eJournalDate {
 	border-radius: 0.15em;
 	border: none;
 	background-color: #ffffff;
@@ -42,7 +45,8 @@ body {
 	margin-right: 10px;
 }
 
-#mood {
+#mood,
+#eMood {
 	float: right;
 	height: 2em;
 	background-color: rgb(255, 255, 255);
@@ -253,7 +257,7 @@ optgroup {
 .button2 {
 	text-align: center;
 	color: rgb(64, 96, 145);
-
+	outline: 0;
 	text-decoration: none;
 	font-family: "Oswald", sans-serif;
 	font-size: 0.8em;
@@ -267,6 +271,7 @@ optgroup {
 	color: rgb(64, 96, 145);
 	cursor: pointer;
 	transition: 0.2s;
+	outline: 0;
 }
 
 .height {
@@ -446,7 +451,7 @@ optgroup {
 
 /* Modal Content */
 .modal-content {
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(248, 161, 161);
 	margin: auto;
 	color: rgb(0, 0, 0);
 	padding: 20px;
@@ -456,7 +461,8 @@ optgroup {
 }
 
 /* The Close Button */
-.close {
+.close,
+.close2 {
 	color: #aaaaaa;
 	float: right;
 	font-size: 28px;
@@ -464,7 +470,9 @@ optgroup {
 }
 
 .close:hover,
-.close:focus {
+.close:focus,
+.close2:hover,
+.close2:focus {
 	color: #000;
 	text-decoration: none;
 	cursor: pointer;

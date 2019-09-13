@@ -138,16 +138,19 @@ document.querySelector(".hide").addEventListener("click", event => {
 document.querySelector(".hide").addEventListener("click", event => {
 	if (event.target.id.startsWith("editEntry--")) {
 		const entryIdToEdit = event.target.id.split("--")[1];
+		let modal = document.getElementById("editModal");
+		modal.style.display = "block";
 		updateFormFields(entryIdToEdit);
 	}
 });
 
 const updateFormFields = entryIdToEdit => {
 	let hiddenId = document.querySelector("#entryId");
-	let dateInput = document.querySelector("#journalDate");
-	let moodInput = document.querySelector("#mood");
-	let conceptsInput = document.querySelector("#concepts");
-	let entryInput = document.querySelector("#entry");
+	let dateInput = document.querySelector("#eJournalDate");
+	let moodInput = document.querySelector("#eMood");
+	let conceptsInput = document.querySelector("#eConcepts");
+	let entryInput = document.querySelector("#eEntry");
+
 	API.getEntry(entryIdToEdit).then(entry => {
 		hiddenId.value = entry.id;
 		dateInput.value = entry.date;
@@ -155,40 +158,46 @@ const updateFormFields = entryIdToEdit => {
 		conceptsInput.value = entry.concepts;
 		entryInput.value = entry.text;
 	});
+	let modal = document.getElementById("editModal");
+	let span = document.getElementsByClassName("close2")[0];
+	modal.style.display = "block";
+	span.onclick = () => {
+		modal.style.display = "none";
+	};
 };
 
-document.querySelector(".button1").addEventListener("click", event => {
-	const hiddenId = document.querySelector("#entryId");
+// document.querySelector(".button1").addEventListener("click", event => {
+// 	const hiddenId = document.querySelector("#entryId");
 
-	if (hiddenId.value != "") {
-		API.editEntry(entryId).then(
-			API.getJournalEntries()
-				.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
-				.then(data => injectDOM.RefreshDOM(data))
-		);
-	} else {
-		let dateInput = document.querySelector("#journalDate").value;
-		let moodInput = document.querySelector("#mood").value;
-		let conceptsInput = document.querySelector("#concepts").value;
-		let entryInput = document.querySelector("#entry").value;
+// 	if (hiddenId.value != "") {
+// 		API.editEntry(entryId).then(
+// 			API.getJournalEntries()
+// 				.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
+// 				.then(data => injectDOM.RefreshDOM(data))
+// 		);
+// 	} else {
+// 		let dateInput = document.querySelector("#journalDate").value;
+// 		let moodInput = document.querySelector("#mood").value;
+// 		let conceptsInput = document.querySelector("#concepts").value;
+// 		let entryInput = document.querySelector("#entry").value;
 
-		//create object
-		const totalEntry = {
-			date: dateInput,
-			mood: moodInput,
-			concepts: conceptsInput,
-			text: entryInput
-		};
-		console.log(totalEntry);
-		//save to DB
-		API.saveJournalEntry(totalEntry);
-		//inject at the top of the journal entry container
-		injectDOM.addEntToDom(totalEntry);
-		//clear text input fields REFACTER to while loop using object
-		document.getElementById("journalDate").value = "";
-		document.getElementById("mood").value = "";
-		document.getElementById("concepts").value = "";
-		document.getElementById("entry").value = "";
-		//open modal validating submission - declare vars REFACTOR with ERROR?
-	}
-});
+// 		//create object
+// 		const totalEntry = {
+// 			date: dateInput,
+// 			mood: moodInput,
+// 			concepts: conceptsInput,
+// 			text: entryInput
+// 		};
+// 		console.log(totalEntry);
+// 		//save to DB
+// 		API.saveJournalEntry(totalEntry);
+// 		//inject at the top of the journal entry container
+// 		injectDOM.addEntToDom(totalEntry);
+// 		//clear text input fields REFACTER to while loop using object
+// 		document.getElementById("journalDate").value = "";
+// 		document.getElementById("mood").value = "";
+// 		document.getElementById("concepts").value = "";
+// 		document.getElementById("entry").value = "";
+// 		//open modal validating submission - declare vars REFACTOR with ERROR?
+// 	}
+// });
