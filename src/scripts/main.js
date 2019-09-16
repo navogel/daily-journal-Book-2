@@ -5,6 +5,7 @@ console.log("hello");
 import injectDOM from "/src/scripts/entriesDOM.js";
 import API from "/src/scripts/data.js";
 import dropdown from "./moodDropdown.js";
+import webComponent from "./entryComponent.js";
 
 const actions = {
 	refresh: () => {
@@ -23,10 +24,15 @@ dropdown.moodDropdown();
 //Get all journal entries, sort by newest first
 actions.refresh();
 
+//create edit modal
+
+document.querySelector("#editModal").innerHTML = webComponent.editModal();
+
+
 //create new journal entry and add to the DOM
 
 //add event listener for button
-document.querySelector(".button1").addEventListener("click", event => {
+document.querySelector(".submitEntryBtn").addEventListener("click", event => {
 	//declare variables to form value - REFACTOR
 	let dateInput = document.querySelector("#journalDate").value;
 	let moodInput = document.querySelector("#mood").value;
@@ -158,6 +164,7 @@ const updateFormFields = entryIdToEdit => {
 	});
 	let modal = document.getElementById("editModal");
 	let span = document.getElementsByClassName("close2")[0];
+	
 	modal.style.display = "block";
 	span.onclick = () => {
 		modal.style.display = "none";
@@ -169,7 +176,7 @@ const updateFormFields = entryIdToEdit => {
 	};
 };
 
-document.querySelector(".button5").addEventListener("click", event => {
+document.querySelector(".editEntryBtn").addEventListener("click", event => {
 	const hiddenId = document.querySelector("#entryId").value;
 	API.editEntry(hiddenId).then(() => actions.refresh());
 	let modal = document.getElementById("editModal");

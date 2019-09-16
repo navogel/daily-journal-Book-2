@@ -106,8 +106,8 @@ h5 {
 
 /* styling the submit button */
 
-.button1,
-.button5 {
+.submitEntryBtn,
+.editEntryBtn {
 	display: inline-block;
 	padding: 0.1em 1.5em;
 	border: 0.07em solid white;
@@ -124,16 +124,16 @@ h5 {
 	margin-bottom: 0.5em;
 }
 
-.button1:hover,
-.button5:hover {
+.submitEntryBtn:hover,
+.editEntryBtn:hover {
 	color: rgb(64, 96, 145);
 	background-color: white;
 	cursor: pointer;
 }
 
 @media all and (max-width: 30em) {
-	.button1,
-	.button5 {
+	.submitEntryBtn,
+	.editEntryBtn {
 		display: block;
 		margin: 0.4em auto;
 	}
@@ -144,12 +144,12 @@ h5 {
 span.add-label {
 	display: none;
 }
-.button1:hover span.align,
-.button5:hover span.align {
+.submitEntryBtn:hover span.align,
+.editEntryBtn:hover span.align {
 	display: none;
 }
-.button1:hover span.add-label,
-.button5:hover span.add-label {
+.submitEntryBtn:hover span.add-label,
+.editEntryBtn:hover span.add-label {
 	display: block;
 	padding: 0em 0.4em;
 }
