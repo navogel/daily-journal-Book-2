@@ -96,6 +96,7 @@ document.querySelector(".normal").addEventListener("click", event => {
 //reset any filters
 document.querySelector(".resetFilter").addEventListener("click", event => {
 	actions.refresh();
+	document.querySelector("#moodSelector").value = "";
 });
 
 //filter by mood
@@ -103,8 +104,7 @@ document.querySelector("#moodSelector").addEventListener("input", event => {
 	API.getJournalEntries()
 		.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
 		.then(data =>
-			injectDOM.filterMood(data, document.querySelector("#moodSelector").value)
-		);
+			injectDOM.filterMood(data, document.querySelector("#moodSelector").value));
 });
 
 //search entries and post results
