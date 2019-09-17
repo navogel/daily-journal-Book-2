@@ -444,7 +444,7 @@ optgroup {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
 	z-index: 45; /* Sit on top */
-	padding-top: 100px; /* Location of the box */
+	 padding-top: 100px; /* Location of the box */
 	left: 0;
 	top: 0;
 	width: 100%; /* Full width */
@@ -463,6 +463,32 @@ optgroup {
 	/* border: 1px solid #888; */
 	width: 80%;
 	border-radius: 10px;
+ 	-webkit-animation-name: animatetop; 
+	-webkit-animation-duration: 0.4s;
+	animation-name: animatetop;
+	animation-duration: 0.4s; */
+}
+
+@-webkit-keyframes animatetop {
+	from {
+		top: -300px;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
+}
+
+@keyframes animatetop {
+	from {
+		top: -300px;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
 }
 
 /* The Close Button */
@@ -544,4 +570,38 @@ body::-webkit-scrollbar-thumb {
 
 .formWrapperHidden {
 	display: none;
+}
+
+/* container buttons */
+.editBtn,
+.deleteBtn {
+	display: inline-block;
+	padding: 0.1em 1.5em;
+	border: 0.07em solid white;
+	margin: auto;
+	border-radius: 0.15em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: "Oswald", sans-serif;
+	font-weight: 500;
+	color: rgb(255, 255, 255);
+	text-align: center;
+	transition: all 0.2s;
+	margin-top: 0.7em;
+	/* margin-bottom: 0.5em; */
+	background: rgba(255, 255, 255, 0);
+}
+
+.deleteBtn:hover,
+.editBtn:hover {
+	color: rgb(64, 96, 145);
+	background-color: white;
+	cursor: pointer;
+}
+
+.jBtns {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
 }

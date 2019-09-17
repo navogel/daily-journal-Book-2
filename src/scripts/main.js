@@ -28,7 +28,6 @@ actions.refresh();
 
 document.querySelector("#editModal").innerHTML = webComponent.editModal();
 
-
 //create new journal entry and add to the DOM
 
 //add event listener for button
@@ -51,7 +50,7 @@ document.querySelector(".submitEntryBtn").addEventListener("click", event => {
 		//create object
 		const totalEntry = {
 			date: dateInput,
-			mood: moodInput,
+			moodId: moodInput,
 			concepts: conceptsInput,
 			text: entryInput
 		};
@@ -104,7 +103,8 @@ document.querySelector("#moodSelector").addEventListener("input", event => {
 	API.getJournalEntries()
 		.then(data => data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id)))
 		.then(data =>
-			injectDOM.filterMood(data, document.querySelector("#moodSelector").value));
+			injectDOM.filterMood(data, document.querySelector("#moodSelector").value)
+		);
 });
 
 //search entries and post results
@@ -158,13 +158,13 @@ const updateFormFields = entryIdToEdit => {
 	API.getEntry(entryIdToEdit).then(entry => {
 		hiddenId.value = entry.id;
 		dateInput.value = entry.date;
-		moodInput.value = entry.mood;
+		moodInput.value = entry.moodId;
 		conceptsInput.value = entry.concepts;
 		entryInput.value = entry.text;
 	});
 	let modal = document.getElementById("editModal");
 	let span = document.getElementsByClassName("close2")[0];
-	
+
 	modal.style.display = "block";
 	span.onclick = () => {
 		modal.style.display = "none";
@@ -181,5 +181,4 @@ document.querySelector(".editEntryBtn").addEventListener("click", event => {
 	API.editEntry(hiddenId).then(() => actions.refresh());
 	let modal = document.getElementById("editModal");
 	modal.style.display = "none";
-})
-
+});

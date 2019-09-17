@@ -3,7 +3,7 @@ import webComponent from "/src/scripts/entryComponent.js";
 
 const injectDOM = {
 	//inject multiple entries into the journal container   DEPRECATED for RefreshDOM
-	addToDom: function(entries) {
+	addToDom(entries) {
 		const journalContainer = document.querySelector("#entryLog");
 		journalContainer.innerHTML = "";
 		entries.forEach(item => {
@@ -25,11 +25,11 @@ const injectDOM = {
 		});
 	},
 	//filter journal entries by mood
-	filterMood: function(entry, mood) {
+	filterMood: function(entries, mood) {
 		const journalContainer = document.querySelector("#entryLog");
 		journalContainer.innerHTML = "";
-		entry.forEach(entry => {
-			if (entry.mood === mood) {
+		entries.forEach(entry => {
+			if (entry.moodId === mood) {
 				journalContainer.innerHTML += webComponent.entryHTML(entry);
 			}
 		});

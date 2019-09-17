@@ -7,7 +7,7 @@ const dropdown = {
 			const moodDropdown = document.querySelectorAll("#moody");
 			moodDropdown.forEach(element => {
 				moods.forEach(mood => {
-					element.innerHTML += `<option id="type-${mood.id}" value="${mood.mood}">${mood.mood}</option>`;
+					element.innerHTML += `<option id="type-${mood.id}" value="${mood.id}">${mood.mood}</option>`;
 				});
 			});
 		});

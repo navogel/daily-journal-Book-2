@@ -3,9 +3,9 @@
 const API = {
 	//fetch json data and parse
 	getJournalEntries: () => {
-		return fetch("http://localhost:3000/journalArray").then(response =>
-			response.json()
-		);
+		return fetch(
+			"http://localhost:3000/journalArray?_sort=id&_order=desc&_expand=mood"
+		).then(response => response.json());
 	},
 	//get moods
 	getMoods: () => {
@@ -40,7 +40,7 @@ const API = {
 	editEntry: entryId => {
 		const updatedObject = {
 			date: document.querySelector("#eJournalDate").value,
-			mood: document.querySelector("#eMood").value,
+			moodId: document.querySelector("#eMood").value,
 			concepts: document.querySelector("#eConcepts").value,
 			text: document.querySelector("#eEntry").value
 		};
