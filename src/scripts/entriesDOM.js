@@ -25,13 +25,21 @@ const injectDOM = {
 		});
 	},
 	//filter journal entries by mood
-	filterMood: function(entries, mood) {
+	filterMood: function(entry, mood) {
 		const journalContainer = document.querySelector("#entryLog");
 		journalContainer.innerHTML = "";
-		entries.forEach(entry => {
+		entry.forEach(entry => {
 			if (entry.moodId === mood) {
 				journalContainer.innerHTML += webComponent.entryHTML(entry);
 			}
+		});
+	},
+	filterMood2: function(entries, mood) {
+		const journalContainer = document.querySelector("#entryLog");
+		journalContainer.innerHTML = "";
+		const filteredEntries = entries.filter(entry => entry.moodId === mood);
+		filteredEntries.forEach(entry => {
+			journalContainer.innerHTML += webComponent.entryHTML(entry);
 		});
 	},
 	//search for entries, that match a keyword

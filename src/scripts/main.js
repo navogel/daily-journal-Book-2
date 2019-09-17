@@ -15,6 +15,16 @@ const actions = {
 	}
 };
 
+const validCharacters =
+	"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,(){}:;-!?";
+
+const validateInputString = string => {
+	return string
+		.split("")
+		.filter(character => validCharacters.includes(character))
+		.join("");
+};
+
 //not working for some reason?
 // import showMe from "/src/scripts/events.js";
 
@@ -47,6 +57,9 @@ document.querySelector(".submitEntryBtn").addEventListener("click", event => {
 	} else if (dateInput === "") {
 		window.alert("YEAH YOU NEED A DATE TOO");
 	} else {
+		//run through filter to remove unwanted characters
+		entryInput = validateInputString(entryInput);
+		conceptInput = validateInputString(conceptInput);
 		//create object
 		const totalEntry = {
 			date: dateInput,
